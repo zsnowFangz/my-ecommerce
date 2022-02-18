@@ -8,7 +8,7 @@ const mainNav = [
     path: "/",
   },
   {
-    display: "Product",
+    display: "Catalog",
     path: "/catalog",
   },
   {

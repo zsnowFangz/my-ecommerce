@@ -10,6 +10,7 @@ import Catalog from "../pages/Catalog";
 import Product from "../pages/Product";
 
 import PageRoutes from "../PageRoutes/PageRoutes";
+import productData from "../assets/fake-data/products";
 
 const Layout = () => {
   return (
