@@ -10,7 +10,8 @@ import Catalog from "../pages/Catalog";
 import Product from "../pages/Product";
 
 import PageRoutes from "../PageRoutes/PageRoutes";
-import productData from "../assets/fake-data/products";
+
+import ProductViewModel from "./ProductViewModel";
 
 const Layout = () => {
   return (
@@ -19,16 +20,17 @@ const Layout = () => {
       <div className="container">
         <div className="main">
           <Routes>
-            <Route path="" element={<PageRoutes />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/catalog/:slug" element={<Product />} />
-              <Route path="/catalog" element={<Catalog />} />
-              <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<PageRoutes />}>
+              <Route path="" element={<Home />} />
+              <Route path="catalog/:slug" element={<Product />} />
+              <Route path="catalog" element={<Catalog />} />
+              <Route path="cart" element={<Cart />} />
             </Route>
           </Routes>
         </div>
       </div>
       <Footer />
+      <ProductViewModel />
     </BrowserRouter>
   );
 };

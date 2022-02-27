@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import productData from "../assets/fake-data/products";
 
 import Helmet from "../components/Helmet";
 import Section, { SectionTitle, SectionBody } from "../components/Section";
 import Grid from "../components/Grid";
+import { useParams } from "react-router-dom";
+
 import ProductCard from "../components/ProductCard";
+import ProductView from "../components/ProductView";
 
 const Product = (props) => {
-  const product = productData.getProductBySlug(props.match.params.slug);
-  
+  // const product = productData.getProductBySlug(props.match.params.slug);
+  const params = useParams();
+  const product = productData.getProductBySlug(params.slug);
   const relatedProducts = productData.getProducts(8);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [product]);
 
   return (
-    <Helmet >
-      <Section title={product.title}>
-        <SectionBody>title={product.title}</SectionBody>
+    <Helmet title={product.title}>
+      <Section>
+        <SectionBody>
+          <ProductView product={product}/>
+        </SectionBody>
       </Section>
       <Section>
         <SectionTitle>More</SectionTitle>

@@ -96,7 +96,6 @@ const Catalog = () => {
   
   return (
     <Helmet title="Product">
-      {console.log(filter)}
       <div className="catalog">
         <div className="catalog__filter" ref={filterRef}>
           <div className="catalog__filter__close" onClick={() => showHideFilter()}><i className="bx bx-left-arrow-alt"></i></div>
